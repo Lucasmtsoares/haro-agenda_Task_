@@ -7,6 +7,10 @@ android {
     namespace = "com.example.haro_agenda"
     compileSdk = 33
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.example.haro_agenda"
         minSdk = 24
