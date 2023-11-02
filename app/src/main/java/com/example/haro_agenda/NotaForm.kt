@@ -3,10 +3,9 @@ package com.example.haro_agenda
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import com.example.haro_agenda.Database.NotaDao
+import com.example.haro_agenda.Dao.NotaDao
 import com.example.haro_agenda.databinding.FormNotaBinding
-import com.example.haro_agenda.Nota
+import com.example.haro_agenda.models.Nota
 
 class NotaForm : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -8,6 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import android.widget.LinearLayout
 import androidx.cardview.widget.CardView
+import com.example.haro_agenda.models.Nota
 
 
 class Adapter(val context: Context, val nota: MutableList<Nota>) : BaseAdapter() {

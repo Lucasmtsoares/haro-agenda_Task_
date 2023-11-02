@@ -1,11 +1,10 @@
 package com.example.haro_agenda
 
-import android.content.ContentValues
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.ListView
-import com.example.haro_agenda.Database.NotaDao
+import com.example.haro_agenda.Dao.NotaDao
+import com.example.haro_agenda.models.Nota
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
