@@ -6,9 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import android.widget.LinearLayout
+import androidx.cardview.widget.CardView
+import com.example.haro_agenda.models.Nota
 
 
-class Adapter(val context: Context, val nota: List<Nota>) : BaseAdapter() {
+class Adapter(val context: Context, val nota: MutableList<Nota>) : BaseAdapter() {
     override fun getCount(): Int {
         return nota.size
     }
@@ -32,16 +35,22 @@ class Adapter(val context: Context, val nota: List<Nota>) : BaseAdapter() {
 
 
         val rowViewCard = inflater.inflate(R.layout.nota_card, parent, false)
-
+        val card = rowViewCard.findViewById<CardView>(R.id.cardView)
 
         var nome = rowViewCard.findViewById<TextView>(R.id.nameTextView)
         var desc = rowViewCard.findViewById<TextView>(R.id.descriptionTextView)
-        var data = rowViewCard.findViewById<TextView>(R.id.dateTextView)
+
 
 
         nome.text = nota[position].nome
         desc.text = nota[position].descricao
-        data.text = nota[position].data
+
+
+        val cardView = rowViewCard.findViewById<LinearLayout>(R.id.card)
+        cardView.setOnClickListener {
+            nota.removeAt(position)
+            notifyDataSetChanged()
+        }
 
 
 
