@@ -23,6 +23,8 @@
         </activity>
         <activity android:name="MainActivity"
             android:exported="true" />
+        <activity android:name="NotaEdit"
+            android:exported="true" />
 
     </application>
 
