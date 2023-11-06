@@ -5,7 +5,7 @@ import android.content.ContentValues
 import android.content.Context
 import com.example.haro_agenda.models.Nota
 
-import com.example.haro_agenda.Database.DatabaseHelper
+import com.example.haro_agenda.database.DatabaseHelper
 
 
 class NotaDao (context: Context) {

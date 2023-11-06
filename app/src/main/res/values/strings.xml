@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">haro-agenda</string>
+    <string name="bem_vindo">BEM VINDO</string>
+    <string name="cadastro">CADASTRO</string>
+    <string name="haro_agenda">HARO AGENDA</string>
+    <string name="nome">Nome</string>
+    <string name="exemplo_nome">Exemplo dos Santos</string>
+    <string name="email">E-mail</string>
+    <string name="exemplo_email">Exemplo@email.com</string>
+    <string name="senha">Senha</string>
+    <string name="senha_confirma">Confirmar Senha</string>
+    <string name="exemplo_senha">********</string>
+    <string name="registrar">REGISTRAR</string>
+    <string name="entrar">ENTRAR</string>
+    <string name="ja_cadastro">Já cadastrado? Entre agora!</string>
+    <string name="nao_cadastro">Não é cadastrado? Cadastre-se aqui!</string>
+    <string name="marca_dagua">POWERED BY MALLV</string>
 </resources>

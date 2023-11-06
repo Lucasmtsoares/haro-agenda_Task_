@@ -5,7 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import com.example.haro_agenda.Dao.NotaDao
 import com.example.haro_agenda.databinding.FormNotaBinding
+import com.example.haro_agenda.loginActivitys.LoginActivity
 import com.example.haro_agenda.models.Nota
+import com.example.haro_agenda.preferencias.SharedPrefs
 
 class NotaForm : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,8 +35,21 @@ class NotaForm : AppCompatActivity() {
 
         }
 
-
+        val logoutButton = binding.logout
+        logoutButton.setOnClickListener {
+            logout()
+        }
 
         setContentView(binding.root)
     }
+
+    private fun logout () {
+
+        SharedPrefs(this).logar(false)
+
+        val irParaLogin = Intent(this, LoginActivity::class.java)
+        startActivity(irParaLogin)
+
+    }
+
 }

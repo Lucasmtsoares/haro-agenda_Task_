@@ -1,4 +1,4 @@
-package com.example.haro_agenda.Database
+package com.example.haro_agenda.database
 
 
 import android.content.Context
