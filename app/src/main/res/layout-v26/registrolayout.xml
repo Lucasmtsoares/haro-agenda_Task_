@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0E0E0"
+    tools:context=".loginActivitys.RegistroActivity">  <!-- Referente à Acivity a qual o layout representa -->
+
+    <!--- ELEMENTOS DE BACKGROUND INICIO  -->
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/vector_4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-10dp"
+        android:src="@drawable/vector_5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--- ELEMENTOS DE BACKGROUND FIM  -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:font="@font/raleway"
+        android:text="@string/haro_agenda"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/body"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mainTile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:font="@font/raleway"
+        android:text="@string/cadastro"
+        android:textColor="#364F6B"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/body"
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <!--- INPUT NOME INICIO -->
+
+        <TextView
+            android:id="@+id/nome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:font="@font/raleway"
+            android:text="@string/nome"
+            android:textColor="#364F6B"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/inputNome" />
+
+        <EditText
+            android:id="@+id/inputNome"
+            android:layout_width="320dp"
+            android:layout_height="48dp"
+            android:background="@drawable/register_input_background"
+            android:font="@font/montserrat"
+            android:hint="@string/exemplo_nome"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nome" />
+
+        <!--- INPUT NOME FIM -->
+
+        <!--- INPUT EMAIL INICIO -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:font="@font/raleway"
+            android:text="@string/email"
+            android:textColor="#364F6B"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/inputEmail"
+            app:layout_constraintStart_toStartOf="@+id/inputEmail" />
+
+        <EditText
+            android:id="@+id/inputEmail"
+            android:layout_width="320dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/register_input_background"
+            android:font="@font/montserrat"
+            android:hint="@string/exemplo_email"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputNome" />
+
+        <!--- INPUT EMAIL FIM -->
+
+        <!--- INPUT SENHA INICIO -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:font="@font/raleway"
+            android:text="@string/senha"
+            android:textColor="#364F6B"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/inputSenha"
+            app:layout_constraintStart_toStartOf="@+id/inputSenha" />
+
+        <EditText
+            android:id="@+id/inputSenha"
+            android:layout_width="320dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="40dp"
+            android:inputType="textPassword"
+            android:background="@drawable/register_input_background"
+            android:font="@font/montserrat"
+            android:hint="@string/exemplo_senha"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
+
+        <!--- INPUT SENHA FIM -->
+
+        <!--- INPUT CONF SENHA INICIO -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:font="@font/raleway"
+            android:text="@string/senha_confirma"
+            android:textColor="#364F6B"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/inputConfirmarSenha"
+            app:layout_constraintStart_toStartOf="@+id/inputConfirmarSenha" />
+
+        <EditText
+            android:id="@+id/inputConfirmarSenha"
+            android:layout_width="320dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="40dp"
+            android:inputType="textPassword"
+            android:background="@drawable/register_input_background"
+            android:font="@font/montserrat"
+            android:hint="@string/exemplo_senha"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputSenha" />
+
+        <!--- INPUT CONF SENHA FIM -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <!--- BOTAO ENVIAR -->
+
+    <Button
+        android:id="@+id/botao"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/register_button_background"
+        android:hint="@string/cadastro"
+        android:textColorHint="#ffffff"
+        android:textSize="20sp"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/body" />
+
+    <TextView
+        android:id="@+id/navegar_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:font="@font/raleway"
+        android:text="@string/ja_cadastro"
+        android:textColor="#FC5185"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botao" />
+
+    <!-- BOTAO ENVIAR FIM -->
+
+    <!-- RODAPE -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:font="@font/raleway"
+        android:text="@string/marca_dagua"
+        android:layout_marginBottom="10dp"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
