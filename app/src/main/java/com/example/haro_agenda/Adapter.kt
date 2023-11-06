@@ -1,14 +1,19 @@
 package com.example.haro_agenda
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.cardview.widget.CardView
 import com.example.haro_agenda.models.Nota
+import com.example.haro_agenda.Dao.NotaDao
 
 
 class Adapter(val context: Context, val nota: MutableList<Nota>) : BaseAdapter() {
@@ -46,10 +51,22 @@ class Adapter(val context: Context, val nota: MutableList<Nota>) : BaseAdapter()
         desc.text = nota[position].descricao
 
 
-        val cardView = rowViewCard.findViewById<LinearLayout>(R.id.card)
+        val cardView = rowViewCard.findViewById<ImageView>(R.id.delete)
         cardView.setOnClickListener {
+            val dbHelper = NotaDao(context)
+            dbHelper.delete(nota[position])
             nota.removeAt(position)
             notifyDataSetChanged()
+        }
+        val edit = rowViewCard.findViewById<ImageView>(R.id.edit)
+        edit.setOnClickListener{
+            val intent = Intent(context, NotaEdit::class.java)
+            val bundle = Bundle()
+            bundle.putParcelable("nota", nota[position])
+
+            intent.putExtras(bundle)
+            context.startActivity(intent)
+
         }
 
 

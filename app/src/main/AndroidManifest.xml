@@ -26,7 +26,6 @@
         <activity
             android:name=".loginActivitys.RegistroActivity"
             android:exported="false" />
-
         <activity
             android:name=".NotaForm"
             android:exported="false" />

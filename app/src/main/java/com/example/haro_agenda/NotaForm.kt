@@ -28,8 +28,8 @@ class NotaForm : AppCompatActivity() {
             var desc = binding.editTextDescricao.text.toString()
 
             val dbHelper = NotaDao(this)
-            var nota = Nota(nome,
-                desc,
+            var nota = Nota(nome = nome,
+                descricao = desc,
             )
             dbHelper.insert(nota)
 
