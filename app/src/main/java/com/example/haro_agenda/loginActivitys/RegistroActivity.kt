@@ -3,6 +3,7 @@ package com.example.haro_agenda.loginActivitys
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.haro_agenda.database.LoginDatabaseHelper
 import com.example.haro_agenda.Entidades.User
@@ -33,7 +34,7 @@ class RegistroActivity : AppCompatActivity() {
             val senha = layout.inputSenha.text.toString()
             val confirmarSenha = layout.inputConfirmarSenha.text.toString()
 
-            val usuario = User( email, nome, senha)
+            val usuario = User( 0,email, nome, senha)
 
 
             try {
@@ -41,6 +42,7 @@ class RegistroActivity : AppCompatActivity() {
                 if (!email.contains("@")) {throw Exception("EmailInvalidoException") }
                 if (senha.length < 8) {throw Exception("SenhaInvalidaException") }
                 if (senha != confirmarSenha) {throw Exception("SenhaNaoConfereException")}
+                if (dao.verificarEmail(email)) {throw Exception("EmailExisteException")}
 
                 dao.registrar(usuario)
                 finish()
@@ -55,9 +57,13 @@ class RegistroActivity : AppCompatActivity() {
                 if (e.message == "EmailInvalidoException") {mensagem("Insira um email valido")}
                 if (e.message == "SenhaInvalidaException") {mensagem("Insira uma senha valida") }
                 if (e.message == "SenhaNaoConfereException") {mensagem("As senhas não coincidem") }
+                if (e.message == "EmailExisteException") {mensagem("Email já cadastrado")}
+
 
                 else {
-                    mensagem("Email já em uso. Insira um email diferente")
+                    mensagem("Erro Inesperado")
+                    Log.e("Teste", e.message.toString())
+
                 }
             }
 
