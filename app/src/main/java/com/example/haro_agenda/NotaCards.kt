@@ -12,7 +12,6 @@ class NotaCards : AppCompatActivity() {
 
 
         val dbHelper = NotaDao(this)
-        //dbHelper.insert(nota1)
         val notas = dbHelper.getAll()
 
 
