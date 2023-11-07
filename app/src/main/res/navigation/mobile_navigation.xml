@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navegacao_notas">
+
+    <fragment
+        android:id="@+id/navegacao_notas"
+        android:name="com.example.haro_agenda.navegacao.ui.home.NotasFragment"
+        android:label="@string/titulo_notas"
+        tools:layout="@layout/fragment_notas" />
+
+    <fragment
+        android:id="@+id/navegacao_tarefas"
+        android:name="com.example.haro_agenda.navegacao.ui.dashboard.TarefasFragment"
+        android:label="@string/titulo_tarefas"
+        tools:layout="@layout/fragment_tarefas" />
+
+    <fragment
+        android:id="@+id/navegacao_pastas"
+        android:name="com.example.haro_agenda.navegacao.ui.pastas.ListarPastasFragment"
+        android:label="@string/titulo_pastas"
+        tools:layout="@layout/fragment_listar_pastas" />
+</navigation>

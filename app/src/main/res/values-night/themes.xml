@@ -13,9 +13,16 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+<!--<<<<<< Updated upstream
     <style name="Theme.autenticar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:textColor">@color/black</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
+=======-->
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Haroagenda" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+<!-->>>>>>> Stashed changes-->
     </style>
 </resources>

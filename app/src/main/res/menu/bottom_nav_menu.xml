@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navegacao_notas"
+        android:icon="@drawable/baseline_checklist_24"
+        android:title="@string/titulo_notas"/>
+
+    <item
+        android:id="@+id/navegacao_tarefas"
+        android:icon="@drawable/baseline_content_paste_24"
+        android:title="@string/titulo_tarefas"/>
+
+    <item
+        android:id="@+id/navegacao_pastas"
+        android:icon="@drawable/baseline_folder_24"
+        android:title="@string/titulo_pastas"/>
+
+</menu>
