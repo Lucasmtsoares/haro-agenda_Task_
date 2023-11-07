@@ -21,6 +21,8 @@
     <string name="titulo_pastas">Pastas</string>
     <string name="title_activity_listar_pastas">ListarPastasActivity</string>
     <string name="adicionar_nova_pasta">Adicionar nova pasta</string>
+    <string name="abrir_notas">Abrir notas</string>
+    <string name="abrir_tarefas">Abrir tarefas</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris

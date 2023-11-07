@@ -3,10 +3,15 @@ package com.example.haro_agenda.loginActivitys
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
+import android.widget.Button
 import android.widget.Toast
+import com.example.haro_agenda.NotaCards
 import com.example.haro_agenda.database.LoginDatabaseHelper
 import com.example.haro_agenda.NotaForm
+import com.example.haro_agenda.R
+import com.example.haro_agenda.TasksActivity
 import com.example.haro_agenda.databinding.LoginlayoutBinding
+import com.example.haro_agenda.navegacao.NavegacaoActivity
 import com.example.haro_agenda.preferencias.SharedPrefs
 
 class LoginActivity : AppCompatActivity() {
@@ -35,6 +40,7 @@ class LoginActivity : AppCompatActivity() {
         ganchoBotaoRegistro()
         ganchoBotaoLogin()
 
+
     }
 
     private fun ganchoBotaoLogin() {
@@ -50,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
 
                     SharedPrefs(this).logar(true)
 
-                    val irParaNotas = Intent(this, NotaForm::class.java)
+                    val irParaNotas = Intent(this, NavegacaoActivity::class.java)
                     startActivity(irParaNotas)
                 } else {
                     mensagem("Usuario não cadastrado")

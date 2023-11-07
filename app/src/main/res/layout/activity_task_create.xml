@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TaskCreate"
+    android:padding="16dp"
+    android:background="#CFBABA">
+
+    <ImageView
+        android:id="@+id/salvar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/baseline_done_24"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/title_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tarefa"
+        android:textColor="@color/purple_500"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/salvar"
+        />
+
+    <EditText
+        android:id="@+id/create"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:hint="Digite o nome da tarefa"
+        android:textColor="#3C3939"
+        android:paddingLeft="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_create"
+        android:background="#F1EDED"
+        android:layout_marginTop="42dp"/>
+
+
+
+    <TextView
+        android:id="@+id/title_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Topico"
+        android:textColor="@color/purple_500"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create"
+        android:layout_marginTop="42dp"/>
+
+    <Button
+        android:id="@+id/title_trab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trabalho"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/teal_700"
+        android:textSize="12sp"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_tag"
+        android:layout_marginTop="42dp"
+        android:layout_marginStart="20dp"/>
+
+    <Button
+        android:id="@+id/title_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Evento"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/purple_500"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/title_trab"
+        app:layout_constraintBottom_toBottomOf="@+id/title_trab"
+        android:layout_marginStart="6dp"
+        />
+    <Button
+        android:id="@+id/title_pessoal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pessoal"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:textColor="@color/white"
+        android:backgroundTint="#08EE00"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/title_event"
+        app:layout_constraintBottom_toBottomOf="@+id/title_event"
+        android:layout_marginStart="6dp"
+        />
+
+    <Button
+        android:id="@+id/title_escola"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escola"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/purple_200"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/title_pessoal"
+        app:layout_constraintBottom_toBottomOf="@+id/title_pessoal"
+        android:layout_marginStart="6dp"
+        />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

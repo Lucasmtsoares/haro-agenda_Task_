@@ -14,11 +14,14 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     override fun onCreate(db: SQLiteDatabase) {
 
         db.execSQL("CREATE TABLE nota (id INTEGER PRIMARY KEY, nome TEXT, descricao Text)")
+        db.execSQL("CREATE TABLE tarefa (id INTEGER PRIMARY KEY, nome_task TEXT, descricao_task Text)");
+
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
 
         db.execSQL("DROP TABLE IF EXISTS nota")
+        db.execSQL("DROP TABLE IF EXISTS tarefa")
         onCreate(db)
     }
 
