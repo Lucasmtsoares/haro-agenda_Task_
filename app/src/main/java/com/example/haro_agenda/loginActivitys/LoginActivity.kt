@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.content.Intent
 import android.widget.Toast
 import com.example.haro_agenda.database.LoginDatabaseHelper
-import com.example.haro_agenda.MainActivity
 import com.example.haro_agenda.NotaForm
 import com.example.haro_agenda.databinding.LoginlayoutBinding
 import com.example.haro_agenda.preferencias.SharedPrefs
