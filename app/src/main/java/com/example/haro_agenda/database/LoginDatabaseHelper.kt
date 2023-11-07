@@ -6,12 +6,12 @@ import androidx.room.RoomDatabase
 import androidx.room.Room
 import com.example.haro_agenda.Dao.UsuariosDao
 import com.example.haro_agenda.Entidades.User
-import com.example.register.MIGRATION_1_2
+import com.example.haro_agenda.migration.MIGRAR
 
 
 @Database(
     entities = [User::class],
-    version = 6,
+    version = 7,
     exportSchema = true
 )
 
@@ -22,7 +22,7 @@ abstract class LoginDatabaseHelper : RoomDatabase() {
         fun pegarInstancia(context: Context) : LoginDatabaseHelper {
 
             return Room.databaseBuilder(context, LoginDatabaseHelper::class.java, "usuarios.db").allowMainThreadQueries().addMigrations(
-                MIGRATION_1_2).build()
+                MIGRAR).build()
         }
     }
 }
