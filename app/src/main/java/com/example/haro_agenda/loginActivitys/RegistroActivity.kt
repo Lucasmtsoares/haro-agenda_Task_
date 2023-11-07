@@ -24,14 +24,14 @@ class RegistroActivity : AppCompatActivity() {
         setContentView(layout.root)
 
         layout.navegarLogin.setOnClickListener {
-            val irParaLogin = Intent(this, LoginActivity::class.java)
-            startActivity(irParaLogin)
+            irParaLogin()
         }
 
         layout.botao.setOnClickListener{
             val nome = layout.inputNome.text.toString()
             val email = layout.inputEmail.text.toString()
             val senha = layout.inputSenha.text.toString()
+            val confirmarSenha = layout.inputConfirmarSenha.text.toString()
 
             val usuario = User( email, nome, senha)
 
@@ -40,22 +40,24 @@ class RegistroActivity : AppCompatActivity() {
                 if (nome == "") {throw Exception("NomeInvalidoException") }
                 if (!email.contains("@")) {throw Exception("EmailInvalidoException") }
                 if (senha.length < 8) {throw Exception("SenhaInvalidaException") }
+                if (senha != confirmarSenha) {throw Exception("SenhaNaoConfereException")}
 
                 dao.registrar(usuario)
                 finish()
 
-                Toast.makeText(this, "Usuario Cadastrado", Toast.LENGTH_LONG).show()
+                mensagem("Usuario Cadastrado")
 
-                val irParaLogin = Intent(this, LoginActivity::class.java)
-                startActivity(irParaLogin)
+                irParaLogin()
             }
 
             catch (e: Exception) {
-                if (e.message == "NomeInvalidoException") { Toast.makeText(this, "Insira um nome valido", Toast.LENGTH_LONG).show() }
-                if (e.message == "EmailInvalidoException") { Toast.makeText(this, "Insira um email valido", Toast.LENGTH_LONG).show() }
-                if (e.message == "SenhaInvalidaException") { Toast.makeText(this, "Insira uma senha valida", Toast.LENGTH_LONG).show() }
+                if (e.message == "NomeInvalidoException") {mensagem("Insira um nome valido") }
+                if (e.message == "EmailInvalidoException") {mensagem("Insira um email valido")}
+                if (e.message == "SenhaInvalidaException") {mensagem("Insira uma senha valida") }
+                if (e.message == "SenhaNaoConfereException") {mensagem("As senhas não coincidem") }
+
                 else {
-                    Toast.makeText(this, "Email já em uso. Insira um email diferente", Toast.LENGTH_LONG).show()
+                    mensagem("Email já em uso. Insira um email diferente")
                 }
             }
 
@@ -65,5 +67,15 @@ class RegistroActivity : AppCompatActivity() {
 
 
 
+    }
+
+
+    private fun irParaLogin() {
+        val enderecoLogin = Intent(this, LoginActivity::class.java)
+        startActivity(enderecoLogin)
+    }
+
+    private fun mensagem(mensagem: String) {
+        Toast.makeText(this, mensagem, Toast.LENGTH_LONG).show()
     }
 }
