@@ -19,6 +19,8 @@ class NotaEdit : AppCompatActivity() {
         }
 
         val binding = FormNotaBinding.inflate(layoutInflater)
+        binding.editTextNome.setText(nota?.nome)
+        binding.editTextDescricao.setText(nota?.descricao)
 
         val button = binding.button
         button.setOnClickListener{

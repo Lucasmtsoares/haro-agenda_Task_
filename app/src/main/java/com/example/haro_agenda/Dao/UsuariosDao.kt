@@ -11,6 +11,9 @@ abstract class UsuariosDao {
     @Query ("SELECT EXISTS(SELECT * FROM user WHERE email = :email AND senha = :senha)")
     abstract fun verificarLogin(email: String, senha: String) : Boolean
 
+    @Query ("SELECT EXISTS(SELECT * FROM user WHERE email = :email)")
+    abstract fun verificarEmail(email: String) : Boolean
+
     @Insert
     abstract fun registrar( user: User)
 
