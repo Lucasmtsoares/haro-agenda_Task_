@@ -58,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
                     val irParaNotas = Intent(this, NotaForm::class.java)
                     startActivity(irParaNotas)
                 } else {
-                    mensagem("Usuario não cadastrado")
+                    mensagem("Usuario ou Senha Incorretos")
                 }
 
                 setContentView(layout.root)
