@@ -1,43 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".MainActivity">
+    tools:context=".NotaCards">
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/vector_4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:importantForAccessibility="no" />
 
-    <EditText
-        android:id="@+id/editTextNome"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nome" />
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_centerInParent="true">
 
-    <EditText
-        android:id="@+id/editTextDescricao"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Descrição" />
 
-    <Button
-        android:id="@+id/button"
+        <EditText
+            android:id="@+id/editTextNome"
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome" />
+
+        <EditText
+            android:id="@+id/editTextDescricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Descrição" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="200dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/register_button_background"
+            android:text="enviar"
+            android:textColorHint="#ffffff"
+            android:textSize="20sp"
+            app:backgroundTint="@null"
+            android:layout_gravity="center"
+            />
+
+        <Button
+            android:id="@+id/notas"
+            android:layout_width="200dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/register_button_background"
+            android:text="ver notas"
+            android:textColorHint="#ffffff"
+            android:textSize="20sp"
+            app:backgroundTint="@null"
+            android:layout_gravity="center" />
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enviar"
-        android:onClick="enviarFormulario" />
-
-    <Button
-        android:id="@+id/notas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ver notas"
-         />
-
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Logout" />
-
-</LinearLayout>
+        android:layout_marginBottom="10dp"
+    android:src="@drawable/vector_5"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:importantForAccessibility="no" />
+</RelativeLayout>

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.content.Intent
 import android.widget.Toast
 import com.example.haro_agenda.database.LoginDatabaseHelper
-import com.example.haro_agenda.MainActivity
 import com.example.haro_agenda.NotaForm
 import com.example.haro_agenda.databinding.LoginlayoutBinding
 import com.example.haro_agenda.preferencias.SharedPrefs
@@ -53,17 +52,18 @@ class LoginActivity : AppCompatActivity() {
 
                     val irParaNotas = Intent(this, NotaForm::class.java)
                     startActivity(irParaNotas)
+                } else {
+                    mensagem("Usuario não cadastrado")
                 }
 
                 setContentView(layout.root)
             }
 
             catch (e: Exception) {
-                if (e.message == "NomeInvalidoException") { Toast.makeText(this, "Insira um nome valido", Toast.LENGTH_LONG).show() }
-                if (e.message == "EmailInvalidoException") { Toast.makeText(this, "Insira um email valido", Toast.LENGTH_LONG).show() }
-                if (e.message == "SenhaInvalidaException") { Toast.makeText(this, "Insira uma senha valida", Toast.LENGTH_LONG).show() }
+                if (e.message == "EmailInvalidoException") {mensagem("Insira um email valido")  }
+                if (e.message == "SenhaInvalidaException") {mensagem("Insira uma senha valida")  }
                 else {
-                    Toast.makeText(this, "Erro Inesperado", Toast.LENGTH_LONG).show()
+                    mensagem("Erro Inesperado")
                 }
             }
 
@@ -77,6 +77,10 @@ class LoginActivity : AppCompatActivity() {
             val irParaCadastro = Intent(this, RegistroActivity::class.java)
             startActivity(irParaCadastro)
         }
+    }
+
+    private fun mensagem(mensagem: String) {
+        Toast.makeText(this, mensagem, Toast.LENGTH_LONG).show()
     }
 
 }

@@ -3,7 +3,6 @@ package com.example.haro_agenda.Dao
 import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
-import android.util.Log
 import com.example.haro_agenda.models.Nota
 
 import com.example.haro_agenda.database.DatabaseHelper
@@ -39,7 +38,6 @@ class NotaDao (context: Context) {
 
             val nota = Nota(id = id,nome = nome, descricao = descricao)
             notas.add(nota)
-            Log.e("a",cursor.getString(cursor.getColumnIndex("id")))
 
         }
         return notas
@@ -48,10 +46,9 @@ class NotaDao (context: Context) {
     fun delete(nota: Nota) {
         val db = dbHelper.writableDatabase
 
-        val whereClause = "nome = ? AND descricao = ?"
-        val whereArgs = arrayOf(nota.nome, nota.descricao)
+        val whereClause = "id=" + nota.id
 
-        val rowsDeleted = db.delete("nota", whereClause, whereArgs)
+        db.delete("nota", whereClause, null)
 
         db.close()
 
@@ -63,16 +60,12 @@ class NotaDao (context: Context) {
         val contentValues = ContentValues()
         contentValues.put("nome", nota.nome)
         contentValues.put("descricao", nota.descricao)
-        Log.e("aaaaa", nota.id.toString())
 
         val whereClause = "id=" + nota.id
-        val whereArgs = arrayOf(nota.id)
 
-
-        val rowsUpdated = db.update("nota", contentValues, whereClause, null)
+        db.update("nota", contentValues, whereClause, null)
 
         db.close()
-
 
     }
 }

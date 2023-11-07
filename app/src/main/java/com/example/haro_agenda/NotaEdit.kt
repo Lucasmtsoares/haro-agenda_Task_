@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import com.example.haro_agenda.Dao.NotaDao
 import com.example.haro_agenda.databinding.FormNotaBinding
 import com.example.haro_agenda.models.Nota
@@ -20,6 +19,8 @@ class NotaEdit : AppCompatActivity() {
         }
 
         val binding = FormNotaBinding.inflate(layoutInflater)
+        binding.editTextNome.setText(nota?.nome)
+        binding.editTextDescricao.setText(nota?.descricao)
 
         val button = binding.button
         button.setOnClickListener{
@@ -34,7 +35,7 @@ class NotaEdit : AppCompatActivity() {
             )
             dbHelper.update(nota)
 
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, NotaCards::class.java)
             startActivity(intent)
 
         }
