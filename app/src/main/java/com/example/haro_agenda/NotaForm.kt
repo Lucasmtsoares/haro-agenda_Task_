@@ -38,10 +38,7 @@ class NotaForm : AppCompatActivity() {
 
         }
 
-        val logoutButton = binding.logout
-        logoutButton.setOnClickListener {
-            logout()
-        }
+
 
         setContentView(binding.root)
     }

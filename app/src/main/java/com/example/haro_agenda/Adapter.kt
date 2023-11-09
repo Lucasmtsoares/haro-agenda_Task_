@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import android.widget.ImageView
+import android.widget.PopupMenu
 import androidx.cardview.widget.CardView
 import com.example.haro_agenda.models.Nota
 import com.example.haro_agenda.Dao.NotaDao
@@ -50,12 +51,41 @@ class Adapter(val context: Context, val nota: MutableList<Nota>) : BaseAdapter()
 
 
         val delete = rowViewCard.findViewById<ImageView>(R.id.delete)
-        delete.setOnClickListener {
-            val dbHelper = NotaDao(context)
-            dbHelper.delete(nota[position])
-            nota.removeAt(position)
-            notifyDataSetChanged()
+        delete.setOnClickListener{ view ->
+        val popupMenu = PopupMenu(context, view)
+        val inflater = popupMenu.menuInflater
+        inflater.inflate(R.menu.popup_notas, popupMenu.menu)
+
+        popupMenu.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.edit -> {
+                    val intent = Intent(context, NotaEdit::class.java)
+                    val bundle = Bundle()
+                    bundle.putParcelable("nota", nota[position])
+
+                    intent.putExtras(bundle)
+                    context.startActivity(intent)
+                    true
+                }
+                R.id.delete -> {
+                    val dbHelper = NotaDao(context)
+                        dbHelper.delete(nota[position])
+                        nota.removeAt(position)
+                        notifyDataSetChanged()
+                    true
+                }
+                else -> false
+            }
         }
+
+        popupMenu.show()
+    }
+        //delete.setOnClickListener {
+        //    val dbHelper = NotaDao(context)
+        //    dbHelper.delete(nota[position])
+        //    nota.removeAt(position)
+        //    notifyDataSetChanged()
+        //}
 
         card.setOnClickListener{
             val intent = Intent(context, NotaEdit::class.java)
