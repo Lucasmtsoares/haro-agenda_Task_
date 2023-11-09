@@ -1,75 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".NotaCards">
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/vector_4"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".TaskCreate"
+android:padding="16dp"
+android:background="#CFBABA">
+
+<ImageView
+    android:id="@+id/button"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:src="@drawable/baseline_done_24"
+    app:layout_constraintEnd_toEndOf="parent"/>
+
+<TextView
+    android:id="@+id/title_nome"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Nome"
+    android:textColor="@color/purple_500"
+    android:textStyle="bold"
+    android:textSize="28sp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+
+    />
+
+<EditText
+    android:id="@+id/editTextNome"
+    android:layout_width="300dp"
+    android:layout_height="40dp"
+    android:hint="Digite o nome da tarefa"
+    android:textColor="#3C3939"
+    android:paddingLeft="8dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/title_nome"
+    android:background="#F1EDED"
+    android:layout_marginTop="42dp"/>
+
+
+
+<TextView
+    android:id="@+id/title_descrição"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Descrição"
+    android:textColor="@color/purple_500"
+    android:textStyle="bold"
+    android:textSize="28sp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/editTextNome"
+    android:layout_marginTop="42dp"/>
+
+
+    <EditText
+        android:id="@+id/editTextDescricao"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:background="#F1EDED"
+        android:hint="Digite a descrição"
+        android:paddingLeft="8dp"
+        android:textColor="#3C3939"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:importantForAccessibility="no" />
+        app:layout_constraintTop_toBottomOf="@+id/title_descrição" />
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:layout_centerInParent="true">
-
-
-        <EditText
-            android:id="@+id/editTextNome"
-            android:layout_marginTop="50dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nome" />
-
-        <EditText
-            android:id="@+id/editTextDescricao"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Descrição" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="200dp"
-            android:layout_height="55dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/register_button_background"
-            android:text="enviar"
-            android:textColorHint="#ffffff"
-            android:textSize="20sp"
-            app:backgroundTint="@null"
-            android:layout_gravity="center"
-            />
-
-        <Button
-            android:id="@+id/notas"
-            android:layout_width="200dp"
-            android:layout_height="55dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/register_button_background"
-            android:text="ver notas"
-            android:textColorHint="#ffffff"
-            android:textSize="20sp"
-            app:backgroundTint="@null"
-            android:layout_gravity="center" />
-
-
-    </LinearLayout>
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-    android:src="@drawable/vector_5"
-    android:layout_alignParentBottom="true"
-    android:layout_centerHorizontal="true"
-    android:importantForAccessibility="no" />
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
