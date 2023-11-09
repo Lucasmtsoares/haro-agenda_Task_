@@ -14,12 +14,6 @@ class NotaForm : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val binding = FormNotaBinding.inflate(layoutInflater)
-        val navbutton = binding.notas
-        navbutton.setOnClickListener{
-            val intent = Intent(this, NotaCards::class.java)
-            startActivity(intent)
-
-        }
 
         val button = binding.button
         button.setOnClickListener{
@@ -33,7 +27,7 @@ class NotaForm : AppCompatActivity() {
             )
             dbHelper.insert(nota)
             finish()
-            val intent = Intent(this, NotaForm::class.java)
+            val intent = Intent(this, NotaCards::class.java)
             startActivity(intent)
 
         }

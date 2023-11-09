@@ -80,22 +80,6 @@ class Adapter(val context: Context, val nota: MutableList<Nota>) : BaseAdapter()
 
         popupMenu.show()
     }
-        //delete.setOnClickListener {
-        //    val dbHelper = NotaDao(context)
-        //    dbHelper.delete(nota[position])
-        //    nota.removeAt(position)
-        //    notifyDataSetChanged()
-        //}
-
-        card.setOnClickListener{
-            val intent = Intent(context, NotaEdit::class.java)
-            val bundle = Bundle()
-            bundle.putParcelable("nota", nota[position])
-
-            intent.putExtras(bundle)
-            context.startActivity(intent)
-
-        }
 
 
 
