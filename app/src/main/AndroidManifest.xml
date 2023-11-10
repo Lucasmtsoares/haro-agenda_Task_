@@ -12,10 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Haroagenda"
         tools:targetApi="31">
+
         <activity
             android:name=".loginActivitys.LoginActivity"
-            android:theme="@style/Theme.autenticar"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.autenticar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,27 +29,32 @@
             android:label="@string/title_activity_navegacao" />
         <activity
             android:name=".NotaCards"
-            android:theme="@style/Theme.autenticar"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.autenticar" />
         <activity
             android:name=".loginActivitys.RegistroActivity"
             android:exported="false"
+            android:theme="@style/Theme.autenticar" />
+        <activity
+            android:name=".TaskUpdate"
+            android:exported="true"
             android:theme="@style/Theme.autenticar"/>
-
         <activity
             android:name=".TaskCreate"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.autenticar"/>
         <activity
             android:name=".TasksActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.autenticar"/>
         <activity
             android:name=".NotaForm"
-            android:theme="@style/Theme.autenticar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.autenticar" />
         <activity
             android:name=".NotaEdit"
-            android:theme="@style/Theme.autenticar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.autenticar" />
     </application>
 
 </manifest>

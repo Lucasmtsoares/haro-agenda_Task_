@@ -14,8 +14,8 @@ class TaskDAO (context: Context) {
     fun salvar(task: TasksClass){
         var db = db_Helper.writableDatabase
         var contentValues = ContentValues()
-        contentValues.put("nome_task", task.nome)
-        contentValues.put("descricao_task", task.descricao)
+        contentValues.put("descricao", task.descricao)
+        contentValues.put("tag", task.tag)
 
         try {
             db.insert("tarefa", null, contentValues)
@@ -35,10 +35,11 @@ class TaskDAO (context: Context) {
         while (cursor.moveToNext()) {
 
             try {
-                val nome      = cursor.getString(cursor.getColumnIndex("nome_task"))
-                val descricao = cursor.getString(cursor.getColumnIndex("descricao_task"))
+                val id        = cursor.getInt(cursor.getColumnIndex("id"))
+                val descricao      = cursor.getString(cursor.getColumnIndex("descricao"))
+                val tag = cursor.getString(cursor.getColumnIndex("tag"))
 
-                val tarefa = TasksClass(nome,descricao)
+                val tarefa = TasksClass(id=id,descricao=descricao, tag = tag)
                 tarefas.add(tarefa)
             }catch (erro_recuperar_dados: Exception){
                 print("Erro ao recuperar dados $erro_recuperar_dados")
@@ -46,6 +47,31 @@ class TaskDAO (context: Context) {
 
         }
         return tarefas
+    }
+    fun update(task: TasksClass) {
+        try {
+            val db = db_Helper.writableDatabase
+            val contentValues = ContentValues()
+            contentValues.put("descricao", task.descricao)
+            contentValues.put("tag", task.tag)
+            val whereClause = "id=" + task.id
+            db.update("tarefa", contentValues, whereClause, null)
+            db.close()
+        }catch (erro: Exception){
+            print("Ocorreu um erro inesperado $erro")
+        }
+    }
+
+    fun delete(task: TasksClass){
+        try {
+            val db = db_Helper.writableDatabase
+            val whereClause = "id=" + task.id
+            db.delete("tarefa", whereClause, null)
+            db.close()
+        }catch (erro: Exception){
+            print("Ocorreu um erro inesperado!! $erro")
+        }
+
     }
 
 }
