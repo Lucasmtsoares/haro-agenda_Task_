@@ -14,7 +14,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     override fun onCreate(db: SQLiteDatabase) {
 
         db.execSQL("CREATE TABLE nota (id INTEGER PRIMARY KEY, nome TEXT, descricao Text)")
-        db.execSQL("CREATE TABLE tarefa (id INTEGER PRIMARY KEY, nome_task TEXT, descricao_task Text)");
+        db.execSQL("CREATE TABLE tarefa (id INTEGER PRIMARY KEY, descricao TEXT, tag Text)");
 
     }
 

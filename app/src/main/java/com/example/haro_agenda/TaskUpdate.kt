@@ -6,18 +6,19 @@ import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import android.widget.TextView
 import com.example.haro_agenda.Dao.TaskDAO
 import com.example.haro_agenda.databinding.ActivityTaskCreateBinding
+import com.example.haro_agenda.databinding.ActivityTaskUpdateBinding
 import com.example.haro_agenda.models.TasksClass
 
-class TaskCreate : AppCompatActivity() {
+class TaskUpdate : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_task_create)
 
-        var binding = ActivityTaskCreateBinding.inflate(layoutInflater)
-        var my_tasks = binding.salvar
+        var binding = ActivityTaskUpdateBinding.inflate(layoutInflater)
+        var my_tasks = binding.update
         var topico = ""
         var topico_trab    = binding.titleTrab
         var topico_evento  = binding.titleEvent
@@ -44,16 +45,23 @@ class TaskCreate : AppCompatActivity() {
 
 
         try {
+            val taskId = intent.getIntExtra("id", 0) // 0 é um valor padrão se não houver um "taskId" no Intent
+            val taskDesc = intent.getStringExtra("descricao")
+            val taskDescription = intent.getStringExtra("tag")
+
+            var text_create = binding.createUpdate
+            text_create.setText(taskDesc)
+
             my_tasks.setOnClickListener{
-                var descricao = binding.create.text.toString()
+
+                var descricao = binding.createUpdate.text.toString()
                 var tag = topico
 
                 //...
 
                 val dbHelper = TaskDAO(this)
-                var tarefa = TasksClass(descricao=descricao, tag = tag,)
-                dbHelper.salvar(tarefa)
-                finish()
+                var tarefa = TasksClass(id=taskId, descricao=descricao, tag = tag,)
+                dbHelper.update(tarefa)
                 val intent = Intent(this, TasksActivity::class.java)
                 startActivity(intent)
             }

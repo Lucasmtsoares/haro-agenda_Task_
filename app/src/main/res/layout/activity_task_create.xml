@@ -65,7 +65,7 @@
         android:textStyle="bold"
         android:padding="8dp"
         android:textColor="@color/white"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="#094C4C"
         android:textSize="12sp"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
