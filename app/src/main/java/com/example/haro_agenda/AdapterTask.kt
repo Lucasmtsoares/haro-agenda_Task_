@@ -10,7 +10,11 @@ import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
 import com.example.haro_agenda.Dao.TaskDAO
+import com.example.haro_agenda.databinding.TaskCardBinding
 import com.example.haro_agenda.models.TasksClass
+import android.graphics.drawable.ColorDrawable
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import androidx.core.app.NotificationCompat.getColor
 
 
 class AdapterTask(val context: Context, val task: MutableList<TasksClass>) : BaseAdapter() {
@@ -44,23 +48,26 @@ class AdapterTask(val context: Context, val task: MutableList<TasksClass>) : Bas
             var tag = rowViewCard.findViewById<TextView>(R.id.task_tag)
             var edit = rowViewCard.findViewById<ImageView>(R.id.task_edit)
 
-
             desc.text = task[position].descricao
             tag.text = task[position].tag
             edit.setImageResource(task[position].edit)
 
+            when (tag.text) {
+                "Trabalho" -> tag.setBackgroundColor(context.getColor(R.color.teal_700))
+                "Evento" -> tag.setBackgroundColor(context.getColor(R.color.purple_500))
+                "Pessoal" -> tag.setBackgroundColor(context.getColor(R.color.purple_200))
+                "Escola" -> tag.setBackgroundColor(context.getColor(R.color.green_500))
+            }
+
             edit.setOnClickListener {
-                // O código para manipular o clique do item da lista vai aqui
-                // Por exemplo, abrir uma nova atividade ou
-                //val intent = Intent(context, TasksActivityUpdate::class.java)
-                //startActivity(context, intent, null)
+
                 PopupMenu(context, edit).apply {
                     menuInflater.inflate(R.menu.poup_task, this.menu)
                     show()
                     setOnMenuItemClickListener { item ->
                         when (item.itemId) {
                             R.id.update_task -> {
-                                // Ação quando o item "Atualizar" é clicado
+
                                 val intent = Intent(context, TaskUpdate::class.java)
                                 intent.putExtra("id", task[position].id)
                                 intent.putExtra("descricao", task[position].descricao)
@@ -69,8 +76,7 @@ class AdapterTask(val context: Context, val task: MutableList<TasksClass>) : Bas
                                 true
                             }
                             R.id.delete_task -> {
-                                // Ação quando o item "Deletar" é clicado
-                                // Implemente a lógica de exclusão aqui
+
                                 val dbHelper = TaskDAO(context)
                                 dbHelper.delete(task[position])
                                 task.removeAt(position)

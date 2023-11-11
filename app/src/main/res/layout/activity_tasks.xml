@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:text="Tag"
         android:textColor="@color/black"
-        android:paddingLeft="240dp" />
+        android:paddingLeft="265dp" />
 
     <TextView
         android:id="@+id/title_edit"

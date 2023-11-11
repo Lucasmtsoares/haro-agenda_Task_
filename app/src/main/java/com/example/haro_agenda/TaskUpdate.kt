@@ -19,7 +19,10 @@ class TaskUpdate : AppCompatActivity() {
 
         var binding = ActivityTaskUpdateBinding.inflate(layoutInflater)
         var my_tasks = binding.update
-        var topico = ""
+        var voltar = binding.voltar
+        val taskTag = intent.getStringExtra("tag")
+        var topico = taskTag.toString()
+
         var topico_trab    = binding.titleTrab
         var topico_evento  = binding.titleEvent
         var topico_pessoal = binding.titlePessoal
@@ -35,22 +38,25 @@ class TaskUpdate : AppCompatActivity() {
         }
         topico_pessoal.setOnClickListener{
             topico = topico_pessoal.text.toString()
-            topico_pessoal.setBackgroundColor(getColor(R.color.green_500))
+            topico_pessoal.setBackgroundColor(getColor(R.color.purple_600))
 
         }
         topico_escola.setOnClickListener{
             topico = topico_escola.text.toString()
-            topico_escola.setBackgroundColor(getColor(R.color.purple_600))
+            topico_escola.setBackgroundColor(getColor(R.color.green_600))
         }
 
 
         try {
-            val taskId = intent.getIntExtra("id", 0) // 0 é um valor padrão se não houver um "taskId" no Intent
+            val taskId = intent.getIntExtra("id", 0)
             val taskDesc = intent.getStringExtra("descricao")
-            val taskDescription = intent.getStringExtra("tag")
+                //val taskTag = intent.getStringExtra("tag")
 
             var text_create = binding.createUpdate
+            var tag_text = binding.titleTag
+
             text_create.setText(taskDesc)
+            //tag_text.   setText(taskTag)
 
             my_tasks.setOnClickListener{
 
@@ -62,6 +68,10 @@ class TaskUpdate : AppCompatActivity() {
                 val dbHelper = TaskDAO(this)
                 var tarefa = TasksClass(id=taskId, descricao=descricao, tag = tag,)
                 dbHelper.update(tarefa)
+                val intent = Intent(this, TasksActivity::class.java)
+                startActivity(intent)
+            }
+            voltar.setOnClickListener{
                 val intent = Intent(this, TasksActivity::class.java)
                 startActivity(intent)
             }

@@ -38,15 +38,15 @@
         <activity
             android:name=".TaskUpdate"
             android:exported="true"
-            android:theme="@style/Theme.autenticar"/>
+            />
         <activity
             android:name=".TaskCreate"
             android:exported="true"
-            android:theme="@style/Theme.autenticar"/>
+            />
         <activity
             android:name=".TasksActivity"
             android:exported="true"
-            android:theme="@style/Theme.autenticar"/>
+            />
         <activity
             android:name=".NotaForm"
             android:exported="false"

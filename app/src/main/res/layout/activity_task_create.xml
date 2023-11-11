@@ -6,7 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".TaskCreate"
     android:padding="16dp"
-    android:background="#CFBABA">
+    android:background="#E4D4D4">
+
+    <ImageView
+        android:id="@+id/voltar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/baseline_arrow_back_ios_24"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <ImageView
         android:id="@+id/salvar"
@@ -33,6 +40,7 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:hint="Digite o nome da tarefa"
+        android:textColorHint="#9F9C9C"
         android:textColor="#3C3939"
         android:paddingLeft="8dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +73,7 @@
         android:textStyle="bold"
         android:padding="8dp"
         android:textColor="@color/white"
-        android:backgroundTint="#094C4C"
+        android:backgroundTint="@color/teal_700"
         android:textSize="12sp"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +105,7 @@
         android:textStyle="bold"
         android:padding="8dp"
         android:textColor="@color/white"
-        android:backgroundTint="#08EE00"
+        android:backgroundTint="@color/purple_200"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/title_event"
         app:layout_constraintBottom_toBottomOf="@+id/title_event"
@@ -113,7 +121,7 @@
         android:textStyle="bold"
         android:padding="8dp"
         android:textColor="@color/white"
-        android:backgroundTint="@color/purple_200"
+        android:backgroundTint="@color/green_500"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/title_pessoal"
         app:layout_constraintBottom_toBottomOf="@+id/title_pessoal"
