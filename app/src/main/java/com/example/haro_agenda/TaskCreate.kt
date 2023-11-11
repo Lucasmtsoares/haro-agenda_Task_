@@ -20,7 +20,7 @@ class TaskCreate : AppCompatActivity() {
         var binding = ActivityTaskCreateBinding.inflate(layoutInflater)
         var my_tasks = binding.salvar
         var voltar = binding.voltar
-        var topico = ""
+        var topico = "Sem nome"
         var topico_trab    = binding.titleTrab
         var topico_evento  = binding.titleEvent
         var topico_pessoal = binding.titlePessoal
