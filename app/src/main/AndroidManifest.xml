@@ -30,7 +30,7 @@
         <activity
             android:name=".NotaCards"
             android:exported="true"
-            android:theme="@style/Theme.autenticar" />
+             />
         <activity
             android:name=".loginActivitys.RegistroActivity"
             android:exported="false"
@@ -50,11 +50,11 @@
         <activity
             android:name=".NotaForm"
             android:exported="false"
-            android:theme="@style/Theme.autenticar" />
+             />
         <activity
             android:name=".NotaEdit"
             android:exported="false"
-            android:theme="@style/Theme.autenticar" />
+             />
     </application>
 
 </manifest>
