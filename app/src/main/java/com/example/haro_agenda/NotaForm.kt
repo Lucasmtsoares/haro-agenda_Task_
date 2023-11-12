@@ -32,6 +32,12 @@ class NotaForm : AppCompatActivity() {
 
         }
 
+        val voltar = binding.voltar
+        voltar.setOnClickListener{
+            val intent = Intent(this, NotaCards::class.java)
+            startActivity(intent)
+        }
+
 
 
         setContentView(binding.root)
