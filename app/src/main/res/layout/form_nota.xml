@@ -7,7 +7,14 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".TaskCreate"
 android:padding="16dp"
-android:background="#CFBABA">
+android:background="#E4D4D4">
+
+    <ImageView
+        android:id="@+id/voltar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/baseline_arrow_back_ios_24"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 <ImageView
     android:id="@+id/button"
@@ -26,6 +33,7 @@ android:background="#CFBABA">
     android:textSize="28sp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/button"
 
     />
 
