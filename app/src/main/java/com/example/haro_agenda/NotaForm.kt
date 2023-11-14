@@ -41,6 +41,7 @@ class NotaForm : AppCompatActivity() {
 
 
         setContentView(binding.root)
+        supportActionBar?.hide()
     }
 
     private fun logout () {

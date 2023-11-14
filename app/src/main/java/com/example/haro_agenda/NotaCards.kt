@@ -14,6 +14,7 @@ class NotaCards : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.lista)
+        supportActionBar?.hide()
 
 
         val navbutton = findViewById<Button>(R.id.notas)

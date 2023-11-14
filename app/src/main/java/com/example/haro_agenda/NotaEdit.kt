@@ -43,5 +43,6 @@ class NotaEdit : AppCompatActivity() {
 
 
         setContentView(binding.root)
+        supportActionBar?.hide()
     }
 }
