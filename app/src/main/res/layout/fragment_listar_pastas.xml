@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/pastaConstraintLayout"
     tools:context=".navegacao.ui.pastas.ListarPastasFragment" >
 
     <TextView
@@ -19,17 +20,21 @@
         android:textColor="@color/purple_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingTop="32dp"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/folderRecyclerView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/fabAddFolder"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/text_notifications" />
+        app:layout_constraintBottom_toBottomOf="@id/text_notifications"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginTop="64dp"
+        />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddFolder"

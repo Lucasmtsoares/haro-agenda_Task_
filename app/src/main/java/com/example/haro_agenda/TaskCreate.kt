@@ -16,6 +16,7 @@ class TaskCreate : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_task_create)
+        supportActionBar?.hide()
 
         var binding = ActivityTaskCreateBinding.inflate(layoutInflater)
         var my_tasks = binding.salvar
