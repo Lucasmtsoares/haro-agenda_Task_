@@ -13,6 +13,7 @@ class TasksActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tasks)
+        supportActionBar?.hide()
 
         val dbHelper = TaskDAO(this)
         //dbHelper.insert(nota1)

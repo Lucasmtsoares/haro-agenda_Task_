@@ -15,6 +15,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
         db.execSQL("CREATE TABLE nota (id INTEGER PRIMARY KEY, nome TEXT, descricao Text)")
         db.execSQL("CREATE TABLE tarefa (id INTEGER PRIMARY KEY, descricao TEXT, tag Text)");
+        db.execSQL("CREATE TABLE pastas (id INTEGER PRIMARY KEY, id_encadeado INTEGER, nome TEXT, data_ultima_modificacao TEXT, cor_icone TEXT)");
 
     }
 
@@ -22,6 +23,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
         db.execSQL("DROP TABLE IF EXISTS nota")
         db.execSQL("DROP TABLE IF EXISTS tarefa")
+        db.execSQL("DROP TABLE IF EXISTS pastas")
         onCreate(db)
     }
 

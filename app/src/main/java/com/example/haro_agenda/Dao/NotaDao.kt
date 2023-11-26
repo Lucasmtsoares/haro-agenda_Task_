@@ -40,6 +40,34 @@ class NotaDao (context: Context) {
             notas.add(nota)
 
         }
+
+        cursor.close()
+        db.close()
+
+        return notas
+    }
+    @SuppressLint("Range")
+    fun search(query: String): ArrayList<Nota> {
+        val notas: ArrayList<Nota> = ArrayList()
+        val db = dbHelper.readableDatabase
+
+        val querySQL = "SELECT * FROM nota WHERE nome LIKE ?"
+        val args = arrayOf("%$query%")
+
+        val cursor = db.rawQuery(querySQL, args )
+
+        while (cursor.moveToNext()) {
+            val id = cursor.getInt(cursor.getColumnIndex("id"))
+            val nome = cursor.getString(cursor.getColumnIndex("nome"))
+            val descricao = cursor.getString(cursor.getColumnIndex("descricao"))
+
+            val nota = Nota(id = id, nome = nome, descricao = descricao)
+            notas.add(nota)
+        }
+
+        cursor.close()
+        db.close()
+
         return notas
     }
 

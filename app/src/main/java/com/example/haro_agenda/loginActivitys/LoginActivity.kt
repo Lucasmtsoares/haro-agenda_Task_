@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
 
         if (SharedPrefs(this).estaLogado()) {
-            val irParaNotas = Intent(this, NotaForm::class.java)
+            val irParaNotas = Intent(this, NavegacaoActivity::class.java)
             startActivity(irParaNotas)
         }
     }
