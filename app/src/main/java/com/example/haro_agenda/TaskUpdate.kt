@@ -16,6 +16,7 @@ import com.example.haro_agenda.models.TasksClass
 class TaskUpdate : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
 
         var binding = ActivityTaskUpdateBinding.inflate(layoutInflater)
         var my_tasks = binding.update

@@ -16,7 +16,6 @@ class NotaCards : AppCompatActivity() {
         setContentView(R.layout.lista)
         supportActionBar?.hide()
 
-
         val navbutton = findViewById<Button>(R.id.notas)
 
         val dbHelper = NotaDao(this)

@@ -12,6 +12,7 @@ import com.example.haro_agenda.preferencias.SharedPrefs
 class NotaForm : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
 
         val binding = FormNotaBinding.inflate(layoutInflater)
 
