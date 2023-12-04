@@ -7,6 +7,7 @@ import android.os.Bundle
 import com.example.haro_agenda.Dao.NotaDao
 import com.example.haro_agenda.databinding.FormNotaBinding
 import com.example.haro_agenda.models.Nota
+import com.example.haro_agenda.navegacao.NavegacaoActivity
 
 class NotaEdit : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +37,7 @@ class NotaEdit : AppCompatActivity() {
             )
             dbHelper.update(nota)
 
-            val intent = Intent(this, NotaCards::class.java)
+            val intent = Intent(this, NavegacaoActivity::class.java)
             startActivity(intent)
 
         }

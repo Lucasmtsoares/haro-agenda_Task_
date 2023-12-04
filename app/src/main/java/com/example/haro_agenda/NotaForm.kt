@@ -7,6 +7,8 @@ import com.example.haro_agenda.Dao.NotaDao
 import com.example.haro_agenda.databinding.FormNotaBinding
 import com.example.haro_agenda.loginActivitys.LoginActivity
 import com.example.haro_agenda.models.Nota
+import com.example.haro_agenda.navegacao.NavegacaoActivity
+import com.example.haro_agenda.navegacao.ui.home.NotasFragment
 import com.example.haro_agenda.preferencias.SharedPrefs
 
 class NotaForm : AppCompatActivity() {
@@ -28,14 +30,14 @@ class NotaForm : AppCompatActivity() {
             )
             dbHelper.insert(nota)
             finish()
-            val intent = Intent(this, NotaCards::class.java)
+            val intent = Intent(this, NavegacaoActivity::class.java)
             startActivity(intent)
 
         }
 
         val voltar = binding.voltar
         voltar.setOnClickListener{
-            val intent = Intent(this, NotaCards::class.java)
+            val intent = Intent(this, NavegacaoActivity::class.java)
             startActivity(intent)
         }
 
