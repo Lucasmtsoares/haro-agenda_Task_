@@ -36,7 +36,7 @@ class NotasFragment : Fragment() {
 
         val navbutton = view.findViewById<Button>(R.id.notas)
 
-        val dbHelper = NotaDao(requireContext())
+
         var notas: ArrayList<Nota> = ArrayList()
 
         var listView = view.findViewById<ListView>(R.id.lista)
@@ -44,9 +44,11 @@ class NotasFragment : Fragment() {
 
         val scope = MainScope()
         scope.launch {
-            notas  = withContext(Dispatchers.IO){
-                dbHelper.getAll()
+             withContext(Dispatchers.IO){
+                 val dbHelper = NotaDao(requireContext())
+                 notas  = dbHelper.getAll()
             }
+
 
             adapter = Adapter(requireContext(), notas)
 
@@ -59,8 +61,10 @@ class NotasFragment : Fragment() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (!query.isNullOrBlank()) {
                     scope.launch {
-                        notas = withContext(kotlinx.coroutines.Dispatchers.IO){
-                            dbHelper.search(query)
+
+                         withContext(kotlinx.coroutines.Dispatchers.IO){
+                            val dbHelper = NotaDao(requireContext())
+                             notas = dbHelper.search(query)
                         }
                     }
                         adapter = Adapter(requireContext(), notas)
@@ -75,8 +79,9 @@ class NotasFragment : Fragment() {
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (newText.isNullOrBlank()) {
                     scope.launch {
-                        notas = withContext(kotlinx.coroutines.Dispatchers.IO){
-                            dbHelper.getAll()
+                         withContext(kotlinx.coroutines.Dispatchers.IO){
+                             val dbHelper = NotaDao(requireContext())
+                             notas = dbHelper.getAll()
                         }
                         adapter = Adapter(requireContext(), notas)
 
