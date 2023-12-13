@@ -27,10 +27,10 @@ private lateinit var binding: ActivityNavegacaoBinding
 
         val navController = findNavController(R.id.nav_host_fragment_activity_navegacao)
 
-        val logoutButton = binding.logout
-        logoutButton.setOnClickListener {
-            logout()
-        }
+        //val logoutButton = binding.logout
+        //logoutButton.setOnClickListener {
+        //    logout()
+        //}
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
