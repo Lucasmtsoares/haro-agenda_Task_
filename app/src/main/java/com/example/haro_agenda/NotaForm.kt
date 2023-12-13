@@ -10,6 +10,10 @@ import com.example.haro_agenda.models.Nota
 import com.example.haro_agenda.navegacao.NavegacaoActivity
 import com.example.haro_agenda.navegacao.ui.home.NotasFragment
 import com.example.haro_agenda.preferencias.SharedPrefs
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class NotaForm : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,14 +28,22 @@ class NotaForm : AppCompatActivity() {
             var nome = binding.editTextNome.text.toString()
             var desc = binding.editTextDescricao.text.toString()
 
-            val dbHelper = NotaDao(this)
-            var nota = Nota(nome = nome,
-                descricao = desc,
-            )
-            dbHelper.insert(nota)
-            finish()
-            val intent = Intent(this, NavegacaoActivity::class.java)
-            startActivity(intent)
+            val scope = MainScope()
+            scope.launch {
+                withContext(Dispatchers.IO) {
+                    val dbHelper = NotaDao(this@NotaForm)
+                    var nota = Nota(
+                        nome = nome,
+                        descricao = desc,
+                    )
+                    dbHelper.insert(nota)
+                    finish()
+                }
+
+                val intent = Intent(this@NotaForm, NavegacaoActivity::class.java)
+                startActivity(intent)
+            }
+
 
         }
 

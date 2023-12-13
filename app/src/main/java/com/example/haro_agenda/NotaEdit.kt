@@ -8,6 +8,10 @@ import com.example.haro_agenda.Dao.NotaDao
 import com.example.haro_agenda.databinding.FormNotaBinding
 import com.example.haro_agenda.models.Nota
 import com.example.haro_agenda.navegacao.NavegacaoActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class NotaEdit : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,15 +34,20 @@ class NotaEdit : AppCompatActivity() {
             var nome = binding.editTextNome.text.toString()
             var desc = binding.editTextDescricao.text.toString()
 
+            val scope = MainScope()
+            scope.launch {
+                withContext(Dispatchers.IO) {
+                    val dbHelper = NotaDao(this@NotaEdit)
+                    var nota = Nota(
+                        id = id, nome = nome,
+                        descricao = desc,
+                    )
+                    dbHelper.update(nota)
+                }
 
-            val dbHelper = NotaDao(this)
-            var nota = Nota(id = id,nome = nome,
-                descricao = desc,
-            )
-            dbHelper.update(nota)
-
-            val intent = Intent(this, NavegacaoActivity::class.java)
-            startActivity(intent)
+                val intent = Intent(this@NotaEdit, NavegacaoActivity::class.java)
+                startActivity(intent)
+            }
 
         }
 
