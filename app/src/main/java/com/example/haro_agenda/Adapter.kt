@@ -13,6 +13,10 @@ import android.widget.PopupMenu
 import androidx.cardview.widget.CardView
 import com.example.haro_agenda.models.Nota
 import com.example.haro_agenda.Dao.NotaDao
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class Adapter(val context: Context, val nota: MutableList<Nota>) : BaseAdapter() {
@@ -68,11 +72,17 @@ class Adapter(val context: Context, val nota: MutableList<Nota>) : BaseAdapter()
                     true
                 }
                 R.id.delete -> {
-                    val dbHelper = NotaDao(context)
-                        dbHelper.delete(nota[position])
+                    val scope = MainScope()
+                    scope.launch {
+                        withContext(Dispatchers.IO) {
+                            val dbHelper = NotaDao(context)
+                            dbHelper.delete(nota[position])
+                        }
                         nota.removeAt(position)
                         notifyDataSetChanged()
-                    true
+                    }
+                        true
+
                 }
                 else -> false
             }
