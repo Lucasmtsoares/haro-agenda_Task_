@@ -16,4 +16,9 @@
         android:icon="@drawable/baseline_folder_24"
         android:title="@string/titulo_pastas"/>
 
+    <item
+        android:id="@+id/navegacao_endereco"
+        android:icon="@drawable/address"
+        android:title="endereco"/>
+
 </menu>
