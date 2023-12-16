@@ -22,4 +22,10 @@
         android:name="com.example.haro_agenda.navegacao.ui.pastas.ListarPastasFragment"
         android:label="@string/titulo_pastas"
         tools:layout="@layout/fragment_listar_pastas" />
+
+    <fragment
+        android:id="@+id/navegacao_endereco"
+        android:name="com.example.haro_agenda.GetAddress"
+        android:label="endereco"
+        tools:layout="@layout/get_cep" />
 </navigation>
