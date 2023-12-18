@@ -8,6 +8,7 @@ import android.widget.ListView
 import com.example.haro_agenda.Dao.NotaDao
 import com.example.haro_agenda.Dao.TaskDAO
 import com.example.haro_agenda.models.TasksClass
+import kotlinx.coroutines.NonCancellable.start
 
 class TasksActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +30,11 @@ class TasksActivity : AppCompatActivity() {
             var tasks = findViewById<Button>(R.id.button_create_task)
             tasks.setOnClickListener{
                 val intent = Intent(this, TaskCreate::class.java)
+                startActivity(intent)
+            }
+            var api = findViewById<Button>(R.id.button_view)
+            api.setOnClickListener{
+                val intent = Intent(this, TaskViewAll::class.java)
                 startActivity(intent)
             }
         }catch (erro: Exception){

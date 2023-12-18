@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Haroagenda"
         tools:targetApi="31">
-
+        <activity
+            android:name=".TaskViewAll"
+            android:exported="false" />
         <activity
             android:name=".loginActivitys.LoginActivity"
             android:exported="true"
@@ -30,32 +33,26 @@
             android:label="@string/title_activity_navegacao" />
         <activity
             android:name=".NotaCards"
-            android:exported="true"
-             />
+            android:exported="true" />
         <activity
             android:name=".loginActivitys.RegistroActivity"
             android:exported="false"
             android:theme="@style/Theme.autenticar" />
         <activity
             android:name=".TaskUpdate"
-            android:exported="true"
-            />
+            android:exported="true" />
         <activity
             android:name=".TaskCreate"
-            android:exported="true"
-            />
+            android:exported="true" />
         <activity
             android:name=".TasksActivity"
-            android:exported="true"
-            />
+            android:exported="true" />
         <activity
             android:name=".NotaForm"
-            android:exported="false"
-             />
+            android:exported="false" />
         <activity
             android:name=".NotaEdit"
-            android:exported="false"
-             />
+            android:exported="false" />
     </application>
 
 </manifest>
